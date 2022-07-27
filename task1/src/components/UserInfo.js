@@ -9,7 +9,7 @@ const UserInfo = () => {
     const [posts, setPosts] = useState()
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
-        async function getUser() {
+         const getUser = async()=> {
             const user1 = await axios.get('https://dummyjson.com/users/' + id)
             const post1 = await axios.get('https://dummyjson.com/posts/user/' + id)
             setUser(user1.data)
