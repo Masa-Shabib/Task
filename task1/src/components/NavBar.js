@@ -1,17 +1,14 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
 const NavBar = (props) => {
     let navigate = useNavigate();
 
     return (
-        <div >
+        <div>
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static" sx={{ backgroundColor: "#28292a" }}>
                     <Toolbar>
@@ -22,7 +19,7 @@ const NavBar = (props) => {
                             sx={{ flexGrow: 1, display: { sm: 'block' }, textAlign: "left" }}
                             onClick={e => navigate("/users")}
                         >
-                            Landing
+                            Users.com
                         </Typography>
                         <Typography
                             variant="h6"

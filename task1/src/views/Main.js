@@ -6,16 +6,15 @@ import NavBar from '../components/NavBar';
 export default (props) => {
     const [allUsers, setAllUsers] = useState([]);
     const [loaded, setLoaded] = useState(false);
-
     useEffect(() => {
-        axios.get('https://dummyjson.com/users')
-            .then(res => {
-                setAllUsers(res.data.users);
-                setLoaded(true);
-            })
-            .catch(err => console.error(err));
-    }, []);
-
+        async function getUser() {
+            const users = await axios.get('https://dummyjson.com/users')
+            setAllUsers(users.data.users);
+            setLoaded(true)
+        }
+        getUser()
+    }, [])
+    
     return (
         <div className="App">
             {loaded && <UserList allUsers={allUsers} />}

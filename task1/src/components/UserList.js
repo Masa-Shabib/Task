@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -9,17 +9,25 @@ import { useNavigate } from "react-router-dom";
 import { CardActionArea } from '@mui/material';
 import TextField from '@mui/material/TextField';
 const UserList = (props) => {
+  const { allUsers } = props;
   const [search, setSearch] = useState("");
   let navigate = useNavigate();
-
+  const searchQuery = e => {
+    setSearch(e.target.value.toLowerCase())
+  }
+  const filterResult = useMemo(() => {
+    const nnn = allUsers.filter((user) =>
+      user.firstName.toLowerCase().includes(search) || user.lastName.toLowerCase().includes(search)
+    )
+    return nnn
+  }, [search])
   return (
     <div >
-      <TextField sx={{ width: 400 }} id="demo-helper-text-misaligned-no-helper" label="Search" onChange={(e) => setSearch(e.target.value.toLowerCase())} />
+     
+      <TextField sx={{ width: 400, marginTop: 2 }} id="demo-helper-text-misaligned-no-helper" label="Search By Name ...." onChange={searchQuery} />
       <Box sx={{ width: '95%', padding: "20px" }}>
         <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          {props.allUsers.filter((user) =>
-            user.firstName.toLowerCase().includes(search) || user.lastName.toLowerCase().includes(search)
-          ).map((user, i) =>
+          {filterResult.map((user, i) =>
             <Grid item xs={10} sm={6} md={4} lg={3} key={i}>
               <CardActionArea>
                 <Card sx={{ display: 'flex', height: 200 }} onClick={e => navigate("/users/" + user.id)} >
