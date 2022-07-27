@@ -21,33 +21,8 @@ const NavBar = (props) => {
                         >
                             Users.com
                         </Typography>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, textAlign: "right" }}
-                            onClick={e => navigate("/users")}
-                        >
-                            Add User
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, textAlign: "right" }}
-                            onClick={e => navigate("/users")}
-                        >
-                            User
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, textAlign: "right" }}
-                            onClick={e => navigate("/users")}
-                        >
-                            User
-                        </Typography>
+                        
+                        
                     </Toolbar>
                 </AppBar>
             </Box>
