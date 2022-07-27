@@ -16,10 +16,10 @@ const UserList = (props) => {
     setSearch(e.target.value.toLowerCase())
   }
   const filterResult = useMemo(() => {
-    const nnn = allUsers.filter((user) =>
+    const result = allUsers.filter((user) =>
       user.firstName.toLowerCase().includes(search) || user.lastName.toLowerCase().includes(search)
     )
-    return nnn
+    return result
   }, [search])
   return (
     <div >
