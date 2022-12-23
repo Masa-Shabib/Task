@@ -18,6 +18,7 @@ const UserInfo = () => {
         }
         getUser()
     }, [])
+    
     return (
         <div style={{ margin: "0 auto" }}>
             {loaded &&
